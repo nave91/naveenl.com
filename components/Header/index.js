@@ -1,14 +1,15 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
+import './index.local.scss';
 
 const Header = () => {
     return (
-        <div className="header">
-            <Link href="/about">
-                <a>About</a>
+        <div className='header'>
+            <Link href='/'>
+                <a>Home</a>
             </Link>
         </div>
     );
 };
 
-export default Header
+export default Header;

@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './index.local.scss';
+import './index.local.scss';
 
 const HomePage = () => {
   return (
-    <div className={ styles.homePageContainer } >
+    <div className='homePageContainer' >
         <h1>
             Naveen <br/>
             Kumar <br/>
