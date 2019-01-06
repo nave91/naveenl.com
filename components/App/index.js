@@ -1,12 +1,14 @@
 import React from 'react';
-import Header from "../Header";
+import Header from '../Header';
+import Footer from '../Footer';
 
 import './index.scss';
 
 const App = ({ children }) => (
     <main>
-        <Header/>
+        <Header />
         {children}
+        <Footer />
     </main>
 );
 
