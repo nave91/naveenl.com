@@ -5,9 +5,13 @@ import './index.local.scss';
 const Header = () => {
     return (
         <div className='header'>
-            <Link href='/'>
-                <a>Home</a>
-            </Link>
+            <div className='home'>
+                <Link href='/'>
+                    <a>
+                        <h3>Home</h3>
+                    </a>
+                </Link>
+            </div>
         </div>
     );
 };
