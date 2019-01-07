@@ -3,7 +3,7 @@ import './index.local.scss';
 
 const renderGithub = () => {
     return (
-        <div className='github inline-block'>
+        <div className='github inline-block footer-box'>
             <a href='https://github.com/nave91'>
                 <img src='/static/github.png' />
             </a>
@@ -13,7 +13,7 @@ const renderGithub = () => {
 
 const renderLinkedin = () => {
     return (
-        <div className='linkedin inline-block'>
+        <div className='linkedin inline-block footer-box'>
             <a href='https://www.linkedin.com/in/nave91'>
                 <img src='/static/linkedin.png' />
             </a>
