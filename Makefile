@@ -16,14 +16,14 @@ cp:
 
 .PHONY: run
 run:
-	docker run -i -p 3000:3000 --name naveenl naveenl ${ARGS}
+	docker run -i --env-file=.env -p 3000:3000 --name naveenl naveenl ${ARGS}
 
 .PHONY: server
 server: build stop remove run
 
 .PHONY: detached
 detached:
-	docker run -id -p 3000:3000 --name naveenl naveenl ${ARGS}
+	docker run -id --env-file=.env -p 3000:3000 --name naveenl naveenl ${ARGS}
 
 .PHONY: deploy
 deploy: build stop remove detached
