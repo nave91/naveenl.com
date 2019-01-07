@@ -1,22 +1,12 @@
 import React from 'react';
 import './index.local.scss';
 
-const renderGithub = () => {
+const renderPoweredBy = () => {
     return (
-        <div className='github inline-block footer-box'>
-            <a href='https://github.com/nave91'>
-                <img src='/static/github.png' />
-            </a>
-        </div>
-    );
-};
-
-const renderLinkedin = () => {
-    return (
-        <div className='linkedin inline-block footer-box'>
-            <a href='https://www.linkedin.com/in/nave91'>
-                <img src='/static/linkedin.png' />
-            </a>
+        <div className='powered-by'>
+            <p>Powered by
+                <a href='https://nextjs.org/'>Next.js</a>+
+                <a href='https://www.docker.com/'>Docker</a></p>
         </div>
     );
 };
@@ -24,8 +14,7 @@ const renderLinkedin = () => {
 const Footer = () => {
     return (
         <div className='footer'>
-            { renderGithub() }
-            { renderLinkedin() }
+            { renderPoweredBy() }
         </div>
     );
 };
