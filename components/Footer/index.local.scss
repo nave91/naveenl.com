@@ -1,24 +1,17 @@
 .footer {
+  width: 50%;
   height: 76px;
   min-height: 0;
   position: fixed;
   bottom: 0;
   top: unset;
 
+  .powered-by {
+    float: right;
+  }
+
   a {
-    margin-right: 10px;
-  }
-
-  .footer-box {
-    margin-right: 10px;
-  }
-
-  img {
-    height: 50px;
-  }
-
-  .inline-block {
-    display: inline-block;
+    margin: 10px;
   }
 
 }

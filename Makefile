@@ -25,5 +25,9 @@ server: build stop remove run
 detached:
 	docker run -id --env-file=.env -p 3000:3000 --name naveenl naveenl ${ARGS}
 
+.PHONY: gitpull
+gitpull:
+	git pull origin master
+
 .PHONY: deploy
-deploy: build stop remove detached
+deploy: gitpull build stop remove detached

@@ -1,8 +1,19 @@
 .homePageContainer {
-  width: 10px;
-
   h1 {
     font-size: 50px;
     text-align: left;
   }
+
+  .link-box {
+    margin-right: 10px;
+  }
+
+  img {
+    height: 40px;
+  }
+
+  .inline-block {
+    display: inline-block;
+  }
+
 }
