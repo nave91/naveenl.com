@@ -23,7 +23,7 @@ class Wave extends Component {
         }
     }
 
-    drawSineWave(ctx, xMax, yMax, freq=3, amp=50) {
+    drawSineWave(ctx, xMax, yMax, freq=3, amp=40) {
         let yCenter = yMax / 2;
         let x, y;
         for (x = 0; x < xMax; x++) {
@@ -37,8 +37,8 @@ class Wave extends Component {
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0,0, 300, 300);
 
-        let xMax = 400;
-        let yMax = 200;
+        let xMax = 300;
+        let yMax = 150;
 
         this.drawXYAxes(ctx, xMax, yMax);
 
@@ -47,6 +47,16 @@ class Wave extends Component {
         sineCtx.fillStyle = '#1b9db7';
 
         this.drawSineWave(sineCtx, xMax, yMax);
+    }
+
+    componentWillUnmount() {
+        const canvas = this.refs.canvas;
+        const context = canvas.getContext('2d');
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        const sineCanvas = this.refs.canvas;
+        const sineCtx = sineCanvas.getContext("2d");
+        sineCtx.clearRect(0, 0, canvas.width, canvas.height);
     }
 
     render() {
