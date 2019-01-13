@@ -1,19 +1,32 @@
 .homePageContainer {
-  h1 {
-    font-size: 50px;
-    text-align: left;
+
+  top: 25%;
+  position: absolute;
+  display: flex;
+
+  .nameContainer {
+
+    h1 {
+      font-size: 50px;
+      text-align: left;
+    }
+
+    .link-box {
+      margin-right: 10px;
+    }
+
+    img {
+      height: 40px;
+    }
+
+    .inline-block {
+      display: inline-block;
+    }
   }
 
-  .link-box {
-    margin-right: 10px;
-  }
+  .waveChartContainer {
+    padding-left: 25%;
 
-  img {
-    height: 40px;
-  }
-
-  .inline-block {
-    display: inline-block;
   }
 
 }
