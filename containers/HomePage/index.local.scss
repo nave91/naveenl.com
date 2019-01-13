@@ -1,8 +1,6 @@
 .homePageContainer {
 
   top: 25%;
-  position: absolute;
-  display: flex;
 
   .nameContainer {
 
@@ -25,7 +23,9 @@
   }
 
   .waveChartContainer {
-    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 150px;
 
   }
 

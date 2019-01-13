@@ -40,8 +40,8 @@ const renderNameContainer = () => {
 const HomePage = () => {
   return (
     <div className='homePageContainer' >
-        { renderNameContainer() }
         <Wave />
+        { renderNameContainer() }
     </div>
   );
 };
