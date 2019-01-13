@@ -5,9 +5,35 @@ import './index.local.scss';
 function rect(props) {
     const {ctx, x, y, width, height} = props;
     ctx.fillRect(x, y, width, height);
-};
+}
 
 class Wave extends Component {
+
+    state = {
+        currentCount: 0,
+        xMax: 300,
+        yMax: 150
+    };
+
+    timer = () => {
+        // setState method is used to update the state
+        this.setState({ currentCount: this.state.currentCount +1 });
+
+        // Keep re-drawing X-Y axes
+        const canvas = this.refs.canvas;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = 'black';
+        ctx.clearRect(0,0, 300, 300);
+
+        this.drawXYAxes(ctx, this.state.xMax, this.state.yMax);
+
+        // Keep re-drawing Sine-waves
+        const sineCanvas = this.refs.canvas;
+        const sineCtx = sineCanvas.getContext("2d");
+        sineCtx.fillStyle = '#1b9db7';
+        this.drawSineWave(sineCtx, this.state.xMax, this.state.yMax);
+
+    };
 
     drawXYAxes(ctx, xMax, yMax) {
         let x, y;
@@ -27,29 +53,22 @@ class Wave extends Component {
         let yCenter = yMax / 2;
         let x, y;
         for (x = 0; x < xMax; x++) {
-            y = yCenter + amp * Math.sin(2 * Math.PI * freq * x / xMax);
+            let movingX = x - this.state.currentCount % xMax;
+            y = yCenter + amp * Math.sin(2 * Math.PI * freq * movingX / xMax);
             rect({ctx, x:x, y:y, width: 1, height: 1});
         }
     }
 
     componentDidMount() {
-        const canvas = this.refs.canvas;
-        const ctx = canvas.getContext("2d");
-        ctx.clearRect(0,0, 300, 300);
+        setInterval(this.timer, 50);
 
-        let xMax = 300;
-        let yMax = 150;
-
-        this.drawXYAxes(ctx, xMax, yMax);
-
-        const sineCanvas = this.refs.canvas;
-        const sineCtx = sineCanvas.getContext("2d");
-        sineCtx.fillStyle = '#1b9db7';
-
-        this.drawSineWave(sineCtx, xMax, yMax);
+        window.requestAnimationFrame(this.timer);
     }
 
     componentWillUnmount() {
+
+        clearInterval(this.state.intervalId);
+
         const canvas = this.refs.canvas;
         const context = canvas.getContext('2d');
 
