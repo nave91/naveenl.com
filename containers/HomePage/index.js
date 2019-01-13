@@ -1,4 +1,5 @@
 import React from 'react';
+import Wave from '../../components/Wave';
 import './index.local.scss';
 
 const renderGithub = () => {
@@ -21,17 +22,26 @@ const renderLinkedin = () => {
     );
 };
 
+const renderNameContainer = () => {
+    return (
+        <div className='nameContainer'>
+            <h1>
+                Naveen <br/>
+                Kumar <br/>
+                Lekkalapudi <br/>
+            </h1>
+            { renderGithub() }
+            { renderLinkedin() }
+
+        </div>
+    );
+}
 
 const HomePage = () => {
   return (
     <div className='homePageContainer' >
-        <h1>
-            Naveen <br/>
-            Kumar <br/>
-            Lekkalapudi <br/>
-        </h1>
-        { renderGithub() }
-        { renderLinkedin() }
+        <Wave />
+        { renderNameContainer() }
     </div>
   );
 };
