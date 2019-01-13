@@ -41,7 +41,12 @@ class Wave extends Component {
         let yMax = 200;
 
         this.drawXYAxes(ctx, xMax, yMax);
-        this.drawSineWave(ctx, xMax, yMax);
+
+        const sineCanvas = this.refs.canvas;
+        const sineCtx = sineCanvas.getContext("2d");
+        sineCtx.fillStyle = '#1b9db7';
+
+        this.drawSineWave(sineCtx, xMax, yMax);
     }
 
     render() {
