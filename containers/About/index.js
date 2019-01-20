@@ -3,7 +3,10 @@ import React from 'react';
 const About = () => {
     return (
         <div className="about">
-            <p>Hello About</p>
+            <img src='/static/me.jpg' />
+            <p>
+                I'm just here surfing on sine waves, looking to make a dent in the world.
+            </p>
         </div>
     );
 };
