@@ -77,7 +77,9 @@ export class Business extends React.Component {
                 <h3><b>Businesses that started between 1984-2019</b></h3>
                 <p>
                     Each dot represents a business that applied for a new license in city of Chattanooga, TN.
-                    Cluster of blue bots represents where businesses have opened recently.
+                    Cluster of blue bots represents where businesses have opened recently. <br />
+                    Inspired by <br />
+                    <a href='https://deck.gl/'>Deck.gl</a>
                 </p>
                 <p>
                     Data source: <br />
