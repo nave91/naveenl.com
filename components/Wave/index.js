@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Link from 'next/link'
+
 import './index.local.scss';
 
 
@@ -16,23 +18,24 @@ class Wave extends Component {
     };
 
     timer = () => {
-        // setState method is used to update the state
-        this.setState({ currentCount: this.state.currentCount +1 });
-
-        // Keep re-drawing X-Y axes
         const canvas = this.refs.canvas;
-        const ctx = canvas.getContext("2d");
-        ctx.fillStyle = 'black';
-        ctx.clearRect(0,0, 300, 300);
 
-        this.drawXYAxes(ctx, this.state.xMax, this.state.yMax);
+        if (canvas != null) {
+            // setState method is used to update the state
+            this.setState({ currentCount: this.state.currentCount +1 });
 
-        // Keep re-drawing Sine-waves
-        const sineCanvas = this.refs.canvas;
-        const sineCtx = sineCanvas.getContext("2d");
-        sineCtx.fillStyle = '#1b9db7';
-        this.drawSineWave(sineCtx, this.state.xMax, this.state.yMax);
 
+            // Keep re-drawing X-Y axes
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = 'black';
+            ctx.clearRect(0,0, 300, 300);
+
+            this.drawXYAxes(ctx, this.state.xMax, this.state.yMax);
+
+            // Keep re-drawing Sine-waves
+            ctx.fillStyle = '#1b9db7';
+            this.drawSineWave(ctx, this.state.xMax, this.state.yMax);
+        }
     };
 
     drawXYAxes(ctx, xMax, yMax) {
@@ -65,10 +68,19 @@ class Wave extends Component {
         window.requestAnimationFrame(this.timer);
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer);
+        this.setState({
+            currentCount: 0
+        })
+    }
+
     render() {
         return(
             <div className='waveChartContainer'>
-                <canvas ref="canvas" width={this.state.xMax} height={this.state.yMax + 1} />
+                <Link prefetch href='/about'>
+                    <canvas ref="canvas" width={this.state.xMax} height={this.state.yMax + 1} />
+                </Link>
             </div>
         )
     }
