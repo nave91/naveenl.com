@@ -51,11 +51,11 @@ export class Business extends React.Component {
         let color = green;
         let radius = 15;
 
-        if (d.recency > 0.90) {
+        if (d.recency > 0.95) {
             color = blue;
             radius = 30;
         }
-        if (d.recency <= 0.90 && d.recency > 0.70){
+        if (d.recency <= 0.95 && d.recency > 0.70){
             color = red;
             radius = 20;
         }
@@ -76,7 +76,8 @@ export class Business extends React.Component {
             <div className='legend'>
                 <h3><b>Businesses that started between 1984-2019</b></h3>
                 <p>
-                    Each dot represents a business that applied for a new business license in city of Chattanooga, TN.
+                    Each dot represents a business that applied for a new license in city of Chattanooga, TN.
+                    Cluster of blue bots represents where businesses have opened recently.
                 </p>
                 <p>
                     Data source: <br />
@@ -91,11 +92,11 @@ export class Business extends React.Component {
                 <hr />
                 <table className='colors'>
                     <tr>
-                        <td> Opened after 2015 </td>
+                        <td> Opened after 2017 </td>
                         <td className='blue' />
                     </tr>
                     <tr>
-                        <td> Between 2008 and 2015 </td>
+                        <td> Between 2008 and 2017 </td>
                         <td className='red' />
                     </tr>
                     <tr>

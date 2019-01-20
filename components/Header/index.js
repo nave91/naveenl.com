@@ -28,7 +28,7 @@ const renderBusinessLink = () => {
     return (
         <div className='header-box business-link'>
             <a href='/business'>
-                <h3>Starting a business?</h3>
+                <h3>Starting a gig?</h3>
             </a>
         </div>
     )
