@@ -65,23 +65,10 @@ class Wave extends Component {
         window.requestAnimationFrame(this.timer);
     }
 
-    componentWillUnmount() {
-
-        clearInterval(this.state.intervalId);
-
-        const canvas = this.refs.canvas;
-        const context = canvas.getContext('2d');
-
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        const sineCanvas = this.refs.canvas;
-        const sineCtx = sineCanvas.getContext("2d");
-        sineCtx.clearRect(0, 0, canvas.width, canvas.height);
-    }
-
     render() {
         return(
             <div className='waveChartContainer'>
-                <canvas ref="canvas" width={640} height={425} />
+                <canvas ref="canvas" width={this.state.xMax} height={this.state.yMax + 1} />
             </div>
         )
     }
