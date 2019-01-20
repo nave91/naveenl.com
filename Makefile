@@ -17,14 +17,14 @@ cp:
 
 .PHONY: run
 run:
-	docker run -i -p 3000:3000 --name ${project_name} ${project_name} ${ARGS}
+	docker run -i --env-file=.env -p 3000:3000 --name ${project_name} ${project_name} ${ARGS}
 
 .PHONY: server
 server: build stop remove run
 
 .PHONY: detached
 detached:
-	docker run -id -p 3000:3000 --name ${project_name} ${project_name} ${ARGS}
+	docker run -id --env-file=.env -p 3000:3000 --name ${project_name} ${project_name} ${ARGS}
 
 .PHONY: gitpull
 gitpull:
