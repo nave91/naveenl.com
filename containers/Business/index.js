@@ -1,11 +1,14 @@
 import React from 'react';
+import getConfig from 'next/config';
 import DeckGL, {ScatterplotLayer} from 'deck.gl';
 import {StaticMap} from 'react-map-gl';
 
 import {MapboxLayer} from '@deck.gl/mapbox';
 
+const { publicRuntimeConfig: config } = getConfig();
+
 // Set your mapbox token here
-const MAPBOX_TOKEN = 'pk.eyJ1IjoicmVrb2p0b29yIiwiYSI6ImNqcWx2bm01MzNtMjM0NGxiZHIxbjBnOGkifQ.a-Lxvo9kIBRy2HszcxbaSw'; // eslint-disable-line
+const MAPBOX_TOKEN = config.mapBox.MAPBOX_ACCESS_TOKEN; // eslint-disable-line
 
 
 const INITIAL_VIEW_STATE = {
