@@ -1,9 +1,12 @@
 import React from 'react';
 import getConfig from 'next/config';
+import Router from 'next/router'
+
 import DeckGL, {ScatterplotLayer} from 'deck.gl';
 import {StaticMap} from 'react-map-gl';
-
 import {MapboxLayer} from '@deck.gl/mapbox';
+
+import './index.local.scss';
 
 const { publicRuntimeConfig: config } = getConfig();
 
@@ -52,7 +55,7 @@ export class Business extends React.Component {
             color = blue;
             radius = 30;
         }
-        if (d.recency <= 0.80 && d.recency > 0.70){
+        if (d.recency <= 0.90 && d.recency > 0.70){
             color = red;
             radius = 20;
         }
@@ -60,6 +63,49 @@ export class Business extends React.Component {
             color: color,
             radius: radius
         };
+    }
+
+    backButton() {
+        return (
+            <div className='goBack'><a onClick={() => Router.back()}>Go Back</a></div>
+        )
+    }
+
+    renderLegend() {
+        return (
+            <div className='legend'>
+                <h3><b>Businesses that started between 1984-2019</b></h3>
+                <p>
+                    Each dot represents a business that applied for a new business license in city of Chattanooga, TN.
+                </p>
+                <p>
+                    Data source: <br />
+                    <a href='https://data.chattlibrary.org/Economy/Business-License/cxem-8hbr'>
+                        Chattanooga Open Data Portal
+                    </a>
+                </p>
+                <p>
+                Data provided by: <br />
+                Chattanooga Finance and Administration Department
+                </p>
+                <hr />
+                <table className='colors'>
+                    <tr>
+                        <td> Opened after 2015 </td>
+                        <td className='blue' />
+                    </tr>
+                    <tr>
+                        <td> Between 2008 and 2015 </td>
+                        <td className='red' />
+                    </tr>
+                    <tr>
+                        <td> Before 2008 </td>
+                        <td className='green' />
+                    </tr>
+                </table>
+                { this.backButton() }
+            </div>
+        )
     }
 
     render() {
@@ -81,30 +127,34 @@ export class Business extends React.Component {
         ];
 
         return (
-            <DeckGL
-                ref={ref => {
-                    // save a reference to the Deck instance
-                    this._deck = ref && ref.deck;
-                }}
-                layers={layers}
-                initialViewState={INITIAL_VIEW_STATE}
-                controller={true}
-                onWebGLInitialized={this._onWebGLInitialized}
-            >
-                {gl && (
-                    <StaticMap
-                        ref={ref => {
-                            // save a reference to the mapboxgl.Map instance
-                            this._map = ref && ref.getMap();
-                        }}
-                        gl={gl}
-                        mapStyle="mapbox://styles/mapbox/light-v9"
-                        mapboxApiAccessToken={MAPBOX_TOKEN}
-                        onLoad={this._onMapLoad}
-                    />
-                )}
-                { this._renderTooltip() }
-            </DeckGL>
+            <div className='businessPage'>
+                <DeckGL
+                    className='deckContainer'
+                    ref={ref => {
+                        // save a reference to the Deck instance
+                        this._deck = ref && ref.deck;
+                    }}
+                    layers={layers}
+                    initialViewState={INITIAL_VIEW_STATE}
+                    controller={true}
+                    onWebGLInitialized={this._onWebGLInitialized}
+                >
+                    {gl && (
+                        <StaticMap
+                            ref={ref => {
+                                // save a reference to the mapboxgl.Map instance
+                                this._map = ref && ref.getMap();
+                            }}
+                            gl={gl}
+                            mapStyle="mapbox://styles/mapbox/light-v9"
+                            mapboxApiAccessToken={MAPBOX_TOKEN}
+                            onLoad={this._onMapLoad}
+                        />
+                    )}
+                    { this._renderTooltip() }
+                </DeckGL>
+                { this.renderLegend() }
+            </div>
         );
     }
 }
