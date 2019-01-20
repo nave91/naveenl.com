@@ -24,11 +24,22 @@ const renderResumeLink = () => {
     )
 };
 
+const renderBusinessLink = () => {
+    return (
+        <div className='header-box business-link'>
+            <a href='/business'>
+                <h3>Starting a business?</h3>
+            </a>
+        </div>
+    )
+};
+
 const Header = () => {
     return (
         <div className='header'>
             { renderHome() }
             { renderResumeLink() }
+            { renderBusinessLink() }
         </div>
     );
 };
