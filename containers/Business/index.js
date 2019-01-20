@@ -76,9 +76,10 @@ export class Business extends React.Component {
             <div className='legend'>
                 <h3><b>Businesses that started between 1984-2019</b></h3>
                 <p>
+                    New businesses are a good indicator of a booming neighborhood whether to buy a new house or to start a new venture.
                     Each dot represents a business that applied for a new license in city of Chattanooga, TN.
-                    Cluster of blue bots represents where businesses have opened recently. <br />
-                    Inspired by <br />
+                    Dense blue bots are a good place to start.<br />
+                    Inspired by: <br />
                     <a href='https://deck.gl/'>Deck.gl</a>
                 </p>
                 <p>
@@ -86,10 +87,6 @@ export class Business extends React.Component {
                     <a href='https://data.chattlibrary.org/Economy/Business-License/cxem-8hbr'>
                         Chattanooga Open Data Portal
                     </a>
-                </p>
-                <p>
-                Data provided by: <br />
-                Chattanooga Finance and Administration Department
                 </p>
                 <hr />
                 <table className='colors'>
