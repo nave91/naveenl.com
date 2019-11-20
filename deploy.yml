@@ -13,6 +13,7 @@ spec:
       labels:
         app: nave-web
     spec:
+      hostname: tent
       containers:
       - name: nave-web
         image: lnaveenk/naveenl.com:v0
