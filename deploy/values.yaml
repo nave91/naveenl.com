@@ -42,7 +42,7 @@ ingress:
      kubernetes.io/ingress.class: traefik
      kubernetes.io/tls-acme: "true"
   hosts:
-    - host: tent.circus.naveenl.com
+    - host: naveenl.com
       paths: [/]
   tls: []
   #  - secretName: chart-example-tls
