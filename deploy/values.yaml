@@ -69,3 +69,6 @@ affinity: {}
 
 container:
   containerPort: 3000
+
+env:
+  MAPBOX_ACCESS_TOKEN: pk.something
