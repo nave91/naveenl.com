@@ -6,8 +6,7 @@ replicaCount: 1
 
 image:
   repository: lnaveenk/naveenl.com
-  tag: v0
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 imagePullSecrets:
   - name: regcred

@@ -31,4 +31,5 @@ gitpull:
 	git pull origin master
 
 .PHONY: deploy
-deploy: helm install tent --debug --set env.MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN ./deploy
+deploy:
+	helm install tent --debug --set env.MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN ./deploy
