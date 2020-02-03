@@ -42,8 +42,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
-            name: MAPBOX_ACCESS_TOKEN
-            value: {{ .Values.env.MAPBOX_ACCESS_TOKEN }}
+            - name: MAPBOX_ACCESS_TOKEN
+              value: {{ .Values.env.MAPBOX_ACCESS_TOKEN }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
