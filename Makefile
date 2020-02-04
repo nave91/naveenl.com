@@ -1,3 +1,4 @@
+DOCKER_HUB_PROFILE := lnaveenk
 PROJECT_NAME := naveenl.com
 TAG    := $$(git log -1 --pretty=%h)
 IMG    := ${PROJECT_NAME}:${TAG}
@@ -40,7 +41,7 @@ deploy:
 	helm upgrade tent --debug --set env.MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN} ./deploy
 
 push:
-	docker push ${PROJECT_NAME}
+	docker push ${DOCKER_HUB_PROFILE}/${PROJECT_NAME}
 
 login:
 	docker log -u ${DOCKER_USER} -p ${DOCKER_PASS}
