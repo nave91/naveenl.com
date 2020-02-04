@@ -7,7 +7,7 @@ LATEST := ${PROJECT_NAME}:latest
 .PHONY: build
 build:
 	docker build -t ${IMG} .
-	docker tag ${IMG} ${LATEST}
+	docker tag ${IMG} ${DOCKER_HUB_PROFILE}/${LATEST}
 
 .PHONY: stop
 stop:
