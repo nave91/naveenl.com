@@ -17,7 +17,7 @@ const renderHome = () => {
 const renderResumeLink = () => {
     return (
         <div className='header-box'>
-            <a href='/static/resume.pdf'>
+            <a href='/static/resume.pdf' download>
                 <h3>Resume</h3>
             </a>
         </div>
