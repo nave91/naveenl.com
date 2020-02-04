@@ -38,7 +38,7 @@ firstdeploy:
 
 .PHONY: deploy
 deploy:
-	helm upgrade tent --debug --set env.MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN} ./deploy
+	helm upgrade tent --debug --recreate-pods --set env.MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN} ./deploy
 
 push:
 	docker push ${PROJECT_NAME}
