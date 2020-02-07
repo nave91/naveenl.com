@@ -75,7 +75,7 @@ class Wave extends Component {
         })
     }
 
-    render() {
+    render = () => {
         return(
             <div className='waveChartContainer'>
                 <Link prefetch href='/about'>
