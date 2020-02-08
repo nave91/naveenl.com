@@ -1,16 +1,15 @@
-FROM node:8.15-alpine
+FROM node:10-alpine
 
 EXPOSE 3000
 
 RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
-COPY package.json package-lock.json /usr/src/app/
-
 COPY ./ /usr/src/app/
-
-RUN npm ci
+RUN npm install -g --unsafe-perm
 
 RUN npm run build
 
-CMD npm start
+ENTRYPOINT ["npm", "run"]
+
+CMD ["start"]
