@@ -33,6 +33,7 @@ dockerserver: build stop remove run
 .PHONY: server
 server:
 	telepresence --expose 3000 --swap-deployment tent-dev-deploy \
+		--namespace development \
 		--docker-run --rm -it \
 		-v $(pwd):/usr/src/app \
 		-v /usr/src/app/node_modules \
@@ -42,11 +43,16 @@ server:
 
 .PHONY: firstdeploy
 firstdeploy:
-	helm install tent --debug --set env.MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN} ./deploy
+	helm install tent --debug \
+ 		--set env.MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN} \
+ 		./deploy
 
 .PHONY: firstdev
 firstdev:
-	helm install tent-dev --debug --set env.MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN} ./deploy
+	helm install tent-dev --debug \
+		-n development \
+		--set env.MAPBOX_ACCESS_TOKEN=${MAPBOX_ACCESS_TOKEN} \
+		./deploy
 
 .PHONY: deploy
 deploy:
