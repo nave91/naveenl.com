@@ -6,7 +6,7 @@ const renderPoweredBy = () => {
         <div className='powered-by'>
             <p>Powered by
                 <a href='https://nextjs.org/'>Next.js</a>+
-                <a href='https://www.docker.com/'>Docker</a></p>
+                <a href='https://kubernetes.io/'>K8s</a></p>
         </div>
     );
 };
