@@ -32,7 +32,13 @@ dockerserver: build stop remove run
 
 .PHONY: server
 server:
-	telepresence --swap-deployment tent-dev-deploy --docker-run --rm -it -v $(pwd):/usr/src/app -v /usr/src/app/node_modules naveenl.com-dev dev
+	telepresence --expose 3000 --swap-deployment tent-dev-deploy \
+		--docker-run --rm -it \
+		-v $(pwd):/usr/src/app \
+		-v /usr/src/app/node_modules \
+		-v /usr/src/app/.next \
+		-p 0.0.0.0:3000:3000 \
+		naveenl.com-dev dev
 
 .PHONY: firstdeploy
 firstdeploy:

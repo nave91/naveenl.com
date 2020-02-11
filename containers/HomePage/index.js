@@ -22,6 +22,16 @@ const renderLinkedin = () => {
     );
 };
 
+const renderTwitter = () => {
+    return (
+        <div className='twitter inline-block link-box'>
+            <a href='https://www.twitter.com/rekojtoor'>
+                <img src='/static/twitter.png' />
+            </a>
+        </div>
+    );
+};
+
 const renderNameContainer = () => {
     return (
         <div className='nameContainer'>
@@ -32,7 +42,7 @@ const renderNameContainer = () => {
             </h1>
             { renderGithub() }
             { renderLinkedin() }
-
+            { renderTwitter() }
         </div>
     );
 }

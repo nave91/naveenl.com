@@ -78,7 +78,7 @@ class Wave extends Component {
     render = () => {
         return(
             <div className='waveChartContainer'>
-                <Link prefetch href='/about'>
+                <Link href='/about'>
                     <canvas ref="canvas" width={this.state.xMax} height={this.state.yMax + 1} />
                 </Link>
             </div>
