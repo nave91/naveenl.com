@@ -5,9 +5,9 @@ EXPOSE 3000
 RUN mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
-COPY package.json package-lock.json /usr/src/app/
+COPY naveenl.com/package.json naveenl.com/package-lock.json /usr/src/app/
 
-COPY ./ /usr/src/app/
+COPY naveenl.com/ /usr/src/app/
 
 RUN npm ci
 

@@ -1,3 +1,4 @@
+DOCKER_USER := lnaveenk
 PROJECT_NAME := lnaveenk/naveenl.com
 CONTAINER_NAME := naveenl.com
 TAG    := $$(git log -1 --pretty=%h)
@@ -44,4 +45,4 @@ push:
 	docker push ${PROJECT_NAME}
 
 login:
-	docker log -u ${DOCKER_USER} -p ${DOCKER_PASS}
+	docker login --password-stdin -u ${DOCKER_USER}
