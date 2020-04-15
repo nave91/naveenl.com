@@ -1,0 +1,17 @@
+.footer {
+  width: 50%;
+  height: 76px;
+  min-height: 0;
+  position: fixed;
+  bottom: 0;
+  top: unset;
+
+  .powered-by {
+    float: right;
+  }
+
+  a {
+    margin: 10px;
+  }
+
+}
