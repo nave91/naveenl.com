@@ -6,7 +6,7 @@ const renderGithub = () => {
     return (
         <div className='github inline-block link-box'>
             <a href='https://github.com/nave91'>
-                <img src='/static/github.png' />
+                <img src='/static/github.png' alt='linkedin' />
             </a>
         </div>
     );
@@ -16,7 +16,7 @@ const renderLinkedin = () => {
     return (
         <div className='linkedin inline-block link-box'>
             <a href='https://www.linkedin.com/in/nave91'>
-                <img src='/static/linkedin.png' />
+                <img src='/static/linkedin.png' alt='linkedin' />
             </a>
         </div>
     );

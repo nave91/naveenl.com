@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <div className="about">
-            <img src='/static/me.jpg' />
+            <img src='/static/me.jpg' alt='me!' />
             <p>
                 I'm just here surfing on sine waves, looking to make a dent in the world.
             </p>
