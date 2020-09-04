@@ -20,7 +20,7 @@
     "deck.gl": "^6.3.6",
     "next": "7.0.2",
     "next-ga": "^2.3.4",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "proptypes": "^1.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
