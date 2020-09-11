@@ -6,3 +6,10 @@ module.exports = withSass({
         }
     }
 });
+
+// const sitemap = require('nextjs-sitemap-generator');  
+// sitemap({  
+//   baseUrl: 'naveenl.com',  
+//   pagesDirectory: __dirname + "/pages",  
+//   targetDirectory : 'static/'  
+// });
