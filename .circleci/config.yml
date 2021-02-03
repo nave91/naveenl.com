@@ -14,3 +14,6 @@ jobs:
       - run:
           name: "Build docker"
           command: make build
+      - run:
+          name: "Push latest"
+          command: make push
