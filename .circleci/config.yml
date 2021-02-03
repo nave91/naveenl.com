@@ -5,9 +5,6 @@ workflows:
   main:
     jobs:
       - build
-      - push:
-          requires:
-            - build
 jobs:
   build:
     machine:
@@ -17,10 +14,6 @@ jobs:
       - run:
           name: "Build docker"
           command: make build
-  push:
-    machine:
-      image: ubuntu-1604:202101-01
-    steps:
       - run:
           name: "Docker login"
           command: make login
