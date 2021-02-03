@@ -6,6 +6,8 @@ workflows:
     jobs:
       - build
       - push
+        requires:
+          - build
 jobs:
   build:
     machine:
