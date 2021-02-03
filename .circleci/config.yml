@@ -5,6 +5,10 @@ workflows:
   main:
     jobs:
       - build
+      - deploy:
+          requires:
+            - build
+
 jobs:
   build:
     machine:
@@ -20,3 +24,11 @@ jobs:
       - run:
           name: "Push latest"
           command: make push
+  build:
+    machine:
+      image: ubuntu-1604:202101-01
+    steps:
+      - checkout
+      - run:
+          name: "Deploy"
+          command: make deploy
