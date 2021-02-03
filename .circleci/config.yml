@@ -30,5 +30,8 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Install deps"
+          command: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+      - run:
           name: "Deploy"
           command: make deploy
