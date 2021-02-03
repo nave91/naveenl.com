@@ -24,7 +24,7 @@ jobs:
       - run:
           name: "Push latest"
           command: make push
-  build:
+  deploy:
     machine:
       image: ubuntu-1604:202101-01
     steps:
