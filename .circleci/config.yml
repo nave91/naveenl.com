@@ -4,7 +4,11 @@ orbs:
 workflows:
   main:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - master
       - deploy:
           requires:
             - build
