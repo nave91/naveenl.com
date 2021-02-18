@@ -1,0 +1,41 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+workflows:
+  main:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - master
+      - deploy:
+          requires:
+            - build
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:202101-01
+    steps:
+      - checkout
+      - run:
+          name: "Build docker"
+          command: make build
+      - run:
+          name: "Docker login"
+          command: make login
+      - run:
+          name: "Push latest"
+          command: make push
+  deploy:
+    machine:
+      image: ubuntu-1604:202101-01
+    steps:
+      - checkout
+      - run:
+          name: "Install deps"
+          command: curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+      - run:
+          name: "Deploy"
+          command: make deploy
