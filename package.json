@@ -18,7 +18,7 @@
     "@zeit/next-sass": "^1.0.1",
     "classnames": "^2.2.6",
     "deck.gl": "^6.3.6",
-    "next": "9.3.2",
+    "next": "9.5.5",
     "next-ga": "^2.3.4",
     "node-sass": "^4.13.1",
     "proptypes": "^1.1.0",
