@@ -6,8 +6,8 @@
   "lint:css": "stylelint \"**/*.scss\"",
   "lint:js": "eslint --ignore-path .gitignore --ext .js --ext .jsx .",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider next",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
     "start": "next start"
   },
   "keywords": [],
@@ -20,10 +20,16 @@
     "deck.gl": "^6.3.6",
     "next": "9.3.2",
     "next-ga": "^2.3.4",
-    "node-sass": "^4.13.1",
     "proptypes": "^1.1.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-map-gl": "^4.0.8"
+    "react-map-gl": "^4.0.8",
+    "sass": "^1.77.8"
+  },
+  "overrides": {
+    "sass-loader": "^7.3.1"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
